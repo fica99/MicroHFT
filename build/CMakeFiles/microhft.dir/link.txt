@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/microhft.dir/main.cpp.o -o microhft  _deps/spdlog-build/libspdlogd.a 

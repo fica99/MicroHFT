@@ -1,14 +1,15 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+
+# create project
 project(microhft)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-O2 -Wall -Wextra -pthread")
+# add executable
+add_executable(microhft main.cpp)
 
-add_executable(microhft
-	main.cpp
-	market_data.hpp
-	strategy.hpp
-	order_manager.hpp
-	logger.hpp
-	utils.hpp
-)
+# add dependencies
+include(cmake/CPM.cmake)
+
+CPMAddPackage("gh:gabime/spdlog@1.8.2")
+
+# link dependencies
+target_link_libraries(microhft PRIVATE spdlog::spdlog)
